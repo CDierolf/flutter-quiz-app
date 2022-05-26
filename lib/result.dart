@@ -8,7 +8,7 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String resultText = 'You did it!';
     if (_totalScore <= 8) {
-      resultText = 'You suck';
+      resultText = 'You\'re the worst!';
     } else if (_totalScore > 8 && _totalScore <= 30) {
       resultText = 'Not too bad';
     } else if (_totalScore > 30) {
@@ -31,11 +31,14 @@ class Result extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          FlatButton(
-            child: Text(
-              'Reset',
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              primary: Colors.orange,
+              side: BorderSide(
+                color: Colors.orange,
+              ),
             ),
-            textColor: Colors.blue,
+            child: Text('Reset this thing'),
             onPressed: _resetQuiz,
           )
         ],
